@@ -3,6 +3,23 @@ let index = 0; //the order of the neumbers
 let number = 0;
 let elem = document.getElementById('display'); //get the value of the input tag, so you can change what's on the display
 
+function size() {
+for (let i = 0; i < elem.value.length; i++) {
+  if (elem.value.length == 14) {
+    elem.style.fontSize = '24px';
+  }
+  else if (elem.value.length == 18) {
+    elem.style.fontSize = '20px';
+  }
+  else if (elem.value.length == 20) {
+    elem.style.fontSize = '16px';
+  }
+  else if (elem.value.length == 22) {
+    elem.style.fontSize = '12px';
+  }
+}
+
+}
 
 document.querySelectorAll(".key").forEach( //every element that has the class "key"
     el => {
@@ -31,30 +48,30 @@ console.log(elem.value);
         case '8':
         case '9':
             // This will happen if you press either of the numbers above except zero
-            if (keyId == 'divide')
-            console.log('0')
-            else
-            {
+          
+            size()
                 input[index++]=(keyId);
                 elem.value = input.join("");
                 number = input.join("");
 
-            }
+            
 
 
             break;
 
         case 'clear':
+          elem.style.fontSize = '28px';
             location.reload(); // Reloads the page
           break;
 
         case 'percent':
             number = number*0.01;
             elem.value = number;
+            size();
           break;
 
         case 'subtract':
-            number = number-number; // 
+            number = number-number; //
             elem.value = number;
           break;
 
@@ -72,7 +89,6 @@ console.log(elem.value);
             }
           break;
 
-
-
     }
+
 }
